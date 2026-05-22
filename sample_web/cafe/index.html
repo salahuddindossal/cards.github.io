@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="L'Élixir Noir — Craft Specialty Coffee & Artisanal Patisserie. A cinematic sensory experience of roasting, brewing, and refined taste.">
+    <title>L'Élixir Noir — Specialty Coffee & Patisserie</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Luxury Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <h1 class="preloader-logo" id="preloader-logo">L'ÉLIXIR <span>NOIR</span></h1>
+            <div class="preloader-spinner-wrap" id="preloader-spinner-wrap">
+                <div class="preloader-circle"></div>
+                <div class="preloader-progress-ring"></div>
+                <div class="preloader-percentage" id="preloader-percentage">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Glowing Cursor -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-ring" id="custom-cursor-ring"></div>
+
+    <!-- Ambient Floating Layers -->
+    <canvas id="ambient-canvas"></canvas>
+    <div class="ambient-gradient"></div>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Header Navigation -->
+    <header id="main-header">
+        <a href="#" class="logo cursor-hover-trigger">L'ÉLIXIR<span>.</span>N</a>
+        <nav class="nav-links">
+            <a href="#hero" class="nav-link cursor-hover-trigger">Home</a>
+            <a href="#story" class="nav-link cursor-hover-trigger">Philosophy</a>
+            <a href="#menu" class="nav-link cursor-hover-trigger">Menu</a>
+            <a href="#gallery" class="nav-link cursor-hover-trigger">Gallery</a>
+            <a href="#reserve" class="nav-link cursor-hover-trigger">Reservations</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="#reserve" class="book-btn cursor-hover-trigger">Book a Table</a>
+            <button class="menu-trigger cursor-hover-trigger" id="mobile-menu-btn" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section (First 5 seconds impact) -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-container">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1920" alt="L'Élixir Noir Cozy Cafe Interior" class="hero-bg">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grid-container">
+            <div class="hero-content">
+                <span class="hero-subtitle-top">Specialty Blends & Handcrafted Essence</span>
+                <h1 class="hero-title">Where Roasting<br>Becomes <span>Art.</span></h1>
+                <p class="hero-description">Enter a sanctuary where coffee is roasted as a ritual, brewed with absolute precision, and paired with gourmet French patisserie.</p>
+                <div class="hero-ctas">
+                    <a href="#menu" class="cta-btn cta-primary cursor-hover-trigger">Explore Selection</a>
+                    <a href="#reserve" class="cta-btn cta-secondary cursor-hover-trigger">Reserve Experience</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator cursor-hover-trigger" id="scroll-indicator">
+            <span class="scroll-indicator-text">Scroll Down</span>
+            <div class="scroll-indicator-mouse">
+                <div class="scroll-indicator-wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll-Triggered Storytelling -->
+    <section class="section" id="story">
+        <div class="story-grid">
+            <div class="story-image-wrap reveal-element">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=1000" alt="Espresso extraction brewing" class="story-img parallax-layer" data-speed="0.2">
+            </div>
+            <div class="story-content">
+                <span class="section-subtitle reveal-element">The Philosophy</span>
+                <h2 class="section-title reveal-element">A Symphony of<br><span>Roast & Drip.</span></h2>
+                <p class="story-text reveal-element">At L'Élixir Noir, we treat coffee beans not just as a commodity, but as a medium of artistic expression. We ethically source micro-lots directly from farmers across Ethiopia, Colombia, and Java. Under the guidance of our master roaster, each bean is profile-roasted to release its latent, delicate notes of citrus, elderflower, and velvet chocolate.</p>
+                <p class="story-text reveal-element">We believe that a perfect cup is a combination of patience, temperature, and chemistry. Our baristas serve with reverence, utilizing custom-designed copper siphons, precision V60 drippers, and a hand-calibrated espresso system.</p>
+                <div class="story-stat-group reveal-element">
+                    <div class="story-stat">
+                        <span class="story-stat-num">98%</span>
+                        <span class="story-stat-label">Direct Trade</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-num">3</span>
+                        <span class="story-stat-label">Roast Profiles</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="story-stat-num">12</span>
+                        <span class="story-stat-label">Award Baristas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section (GSAP stagger, interactive expand, price slide) -->
+    <section class="section menu-section" id="menu">
+        <div class="menu-header reveal-element">
+            <span class="section-subtitle">Curated Rituals</span>
+            <h2 class="section-title">The <span>Menu.</span></h2>
+        </div>
+
+        <div class="menu-tabs reveal-element">
+            <span class="menu-tab active cursor-hover-trigger" data-category="espresso">Signature Brews</span>
+            <span class="menu-tab cursor-hover-trigger" data-category="patisserie">Fine Patisserie</span>
+            <span class="menu-tab cursor-hover-trigger" data-category="slowbar">Slow Bar</span>
+        </div>
+
+        <div class="menu-grid" id="menu-grid">
+            <!-- Items loaded via JavaScript to allow smooth category changes & stagger animation -->
+        </div>
+    </section>
+
+    <!-- Immersive Gallery Section -->
+    <section class="section gallery-section" id="gallery">
+        <div class="menu-header reveal-element" style="margin-bottom: 5rem;">
+            <span class="section-subtitle">Visual Solitude</span>
+            <h2 class="section-title">The <span>Atmosphere.</span></h2>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Item 1 -->
+            <div class="gallery-item cursor-hover-trigger" data-index="0">
+                <div class="gallery-item-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=800" alt="V60 Pour-over slow brewing" class="gallery-img">
+                </div>
+                <div class="gallery-overlay">
+                    <span class="gallery-cat">Brewing</span>
+                    <h3 class="gallery-title">Slow Pour-Over</h3>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="gallery-item cursor-hover-trigger" data-index="1">
+                <div class="gallery-item-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800" alt="Fresh artisan sourdough and croissants" class="gallery-img">
+                </div>
+                <div class="gallery-overlay">
+                    <span class="gallery-cat">Oven Craft</span>
+                    <h3 class="gallery-title">Morning Croissants</h3>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="gallery-item cursor-hover-trigger" data-index="2">
+                <div class="gallery-item-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&q=80&w=800" alt="Aesthetic warm cafe lounge corner" class="gallery-img">
+                </div>
+                <div class="gallery-overlay">
+                    <span class="gallery-cat">Sanctuary</span>
+                    <h3 class="gallery-title">The Reading Lounge</h3>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="gallery-item cursor-hover-trigger" data-index="3">
+                <div class="gallery-item-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&q=80&w=800" alt="Precision latte art pour" class="gallery-img">
+                </div>
+                <div class="gallery-overlay">
+                    <span class="gallery-cat">Ritual</span>
+                    <h3 class="gallery-title">Micro-Foam Art</h3>
+                </div>
+            </div>
+            <!-- Item 5 -->
+            <div class="gallery-item cursor-hover-trigger" data-index="4">
+                <div class="gallery-item-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&q=80&w=800" alt="Iced nitro cold brew glass" class="gallery-img">
+                </div>
+                <div class="gallery-overlay">
+                    <span class="gallery-cat">Cold Brew</span>
+                    <h3 class="gallery-title">24-Hour Extraction</h3>
+                </div>
+            </div>
+            <!-- Item 6 -->
+            <div class="gallery-item cursor-hover-trigger" data-index="5">
+                <div class="gallery-item-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1607681034540-2c46cc71896d?auto=format&fit=crop&q=80&w=800" alt="Aromatic roasted coffee beans spill" class="gallery-img">
+                </div>
+                <div class="gallery-overlay">
+                    <span class="gallery-cat">Roasting</span>
+                    <h3 class="gallery-title">Geisha Selection</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Immersive Gallery Modal (Custom Swiper) -->
+    <div class="gallery-modal" id="gallery-modal">
+        <div class="modal-close cursor-hover-trigger" id="modal-close" aria-label="Close Gallery"></div>
+        
+        <div class="modal-arrow arrow-left cursor-hover-trigger" id="modal-prev" aria-label="Previous Slide">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </div>
+        
+        <div class="modal-container">
+            <div class="modal-slider" id="modal-slider">
+                <!-- Slides will be duplicated by JS for immersive rendering -->
+            </div>
+            <div class="modal-progress" id="modal-progress">1 / 6</div>
+        </div>
+        
+        <div class="modal-arrow arrow-right cursor-hover-trigger" id="modal-next" aria-label="Next Slide">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+    </div>
+
+    <!-- Taste Quiz / Bean Configurator Section -->
+    <section class="section quiz-section" id="quiz">
+        <div class="menu-header reveal-element">
+            <span class="section-subtitle">Sensory Profile</span>
+            <h2 class="section-title">The Bean <span>Configurator.</span></h2>
+            <p class="story-text" style="text-align: center; max-width: 600px; margin: 1rem auto 0 auto; font-size: 0.95rem;">Adjust the sliders to define your sensory profile. Our custom algorithm will morph a living flavor fluid and recommend your matching specialty coffee.</p>
+        </div>
+
+        <div class="quiz-container reveal-element">
+            <div class="quiz-controls">
+                <div class="quiz-control-group">
+                    <div class="quiz-label-row">
+                        <span class="quiz-control-name">Roast Depth</span>
+                        <span class="quiz-val-label" id="val-roast">Medium</span>
+                    </div>
+                    <input type="range" id="quiz-roast" min="1" max="3" value="2" step="1" class="quiz-slider cursor-hover-trigger">
+                    <div class="quiz-ticks">
+                        <span>Light</span>
+                        <span>Medium</span>
+                        <span>Dark</span>
+                    </div>
+                </div>
+
+                <div class="quiz-control-group">
+                    <div class="quiz-label-row">
+                        <span class="quiz-control-name">Acidity</span>
+                        <span class="quiz-val-label" id="val-acidity">Crisp</span>
+                    </div>
+                    <input type="range" id="quiz-acidity" min="1" max="3" value="2" step="1" class="quiz-slider cursor-hover-trigger">
+                    <div class="quiz-ticks">
+                        <span>Low</span>
+                        <span>Crisp</span>
+                        <span>Vibrant</span>
+                    </div>
+                </div>
+
+                <div class="quiz-control-group">
+                    <div class="quiz-label-row">
+                        <span class="quiz-control-name">Body Density</span>
+                        <span class="quiz-val-label" id="val-body">Balanced</span>
+                    </div>
+                    <input type="range" id="quiz-body" min="1" max="3" value="2" step="1" class="quiz-slider cursor-hover-trigger">
+                    <div class="quiz-ticks">
+                        <span>Light</span>
+                        <span>Balanced</span>
+                        <span>Heavy</span>
+                    </div>
+                </div>
+
+                <div class="quiz-control-group">
+                    <div class="quiz-label-row">
+                        <span class="quiz-control-name">Sweetness Profile</span>
+                        <span class="quiz-val-label" id="val-sweetness">Caramel</span>
+                    </div>
+                    <input type="range" id="quiz-sweetness" min="1" max="3" value="2" step="1" class="quiz-slider cursor-hover-trigger">
+                    <div class="quiz-ticks">
+                        <span>Floral Honey</span>
+                        <span>Caramel</span>
+                        <span>Rich Cacao</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-visual-wrap">
+                <div class="quiz-canvas-container">
+                    <canvas id="blob-canvas"></canvas>
+                </div>
+                
+                <div class="quiz-result-card" id="quiz-result-card">
+                    <span class="result-subtitle">Your Coffee Match</span>
+                    <h3 class="result-title" id="result-title">Kona Saffron Reserve</h3>
+                    <span class="result-price" id="result-price">$11.50</span>
+                    <p class="result-desc" id="result-desc">A perfectly balanced medium roast containing smooth caramel notes, light saffron glaze highlights, and a medium-heavy body feel.</p>
+                    <a href="#reserve" class="result-action-btn cursor-hover-trigger">Add to Invitation Book</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Section (Luxury input boxes) -->
+    <section class="section reservation-section" id="reserve">
+        <div class="reserve-container reveal-element">
+            <div class="reserve-header" id="reserve-header-wrap">
+                <span class="section-subtitle">Reservations</span>
+                <h2 class="section-title">Reserve a <span>Table.</span></h2>
+            </div>
+            
+            <form class="reserve-form" id="reserve-form" action="#" method="POST">
+                <div class="form-group">
+                    <input type="text" id="name" class="form-input cursor-hover-trigger" placeholder=" " required>
+                    <label for="name" class="form-label">Full Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" class="form-input cursor-hover-trigger" placeholder=" " required>
+                    <label for="email" class="form-label">Email Address</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" class="form-input cursor-hover-trigger" placeholder=" " required>
+                    <label for="phone" class="form-label">Phone Number</label>
+                </div>
+                <div class="form-group">
+                    <select id="guests" class="form-input cursor-hover-trigger" required>
+                        <option value="" disabled selected hidden></option>
+                        <option value="1 Companion">1 Companion</option>
+                        <option value="2 Guests">2 Guests</option>
+                        <option value="3 Guests">3 Guests</option>
+                        <option value="4 Guests">4 Guests</option>
+                        <option value="Private Lounge (5+)">Private Lounge (5+)</option>
+                    </select>
+                    <label for="guests" class="form-label">Guests Count</label>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="date" class="form-input cursor-hover-trigger" placeholder=" " required>
+                    <label for="date" class="form-label">Select Date</label>
+                </div>
+                <div class="form-group">
+                    <input type="time" id="time" class="form-input cursor-hover-trigger" placeholder=" " required>
+                    <label for="time" class="form-label">Select Time</label>
+                </div>
+                <div class="form-group full-width">
+                    <input type="text" id="notes" class="form-input cursor-hover-trigger" placeholder=" ">
+                    <label for="notes" class="form-label">Dietary Preferences or Special Requests</label>
+                </div>
+                
+                <div class="form-submit-wrap">
+                    <button type="submit" class="reserve-submit cursor-hover-trigger">Request Invitation</button>
+                </div>
+            </form>
+
+            <!-- 3D Golden Ticket Success Reveal Overlay -->
+            <div class="reserve-success-wrap" id="reserve-success-wrap" style="display: none;">
+                <div class="envelope-container" id="envelope-container">
+                    <div class="envelope-top-flap" id="envelope-top-flap"></div>
+                    <div class="envelope-body"></div>
+                    
+                    <div class="wax-seal-wrapper" id="wax-seal-wrapper">
+                        <div class="wax-seal-half left" id="wax-seal-left"></div>
+                        <div class="wax-seal-half right" id="wax-seal-right"></div>
+                        <div class="wax-seal-seal cursor-hover-trigger" id="wax-seal-button">
+                            <span>E.N</span>
+                        </div>
+                    </div>
+                    
+                    <div class="gold-ticket" id="gold-ticket">
+                        <div class="ticket-border"></div>
+                        <div class="ticket-header">
+                            <h3 class="ticket-brand">L'ÉLIXIR NOIR</h3>
+                            <span class="ticket-sub">PRIVATE INVITATION RITUAL</span>
+                        </div>
+                        <div class="ticket-body">
+                            <div class="ticket-row">
+                                <span class="ticket-label">INVITEE</span>
+                                <span class="ticket-value" id="ticket-name">GUEST NAME</span>
+                            </div>
+                            <div class="ticket-row">
+                                <span class="ticket-label">PARTY</span>
+                                <span class="ticket-value" id="ticket-guests">2 GUESTS</span>
+                            </div>
+                            <div class="ticket-row-split">
+                                <div class="ticket-col">
+                                    <span class="ticket-label">DATE</span>
+                                    <span class="ticket-value" id="ticket-date">2026-05-24</span>
+                                </div>
+                                <div class="ticket-col">
+                                    <span class="ticket-label">TIME</span>
+                                    <span class="ticket-value" id="ticket-time">19:30</span>
+                                </div>
+                            </div>
+                            <div class="ticket-code-row">
+                                <span class="ticket-label">INVITATION CODE</span>
+                                <span class="ticket-code-value" id="ticket-code">EN-2026-47A9</span>
+                            </div>
+                        </div>
+                        <div class="ticket-footer">
+                            <p>PRESENT THIS CODE TO OUR SOMMELIER UPON ARRIVAL</p>
+                        </div>
+                        <div class="ticket-sheen"></div>
+                    </div>
+                </div>
+                
+                <div class="success-actions" style="opacity: 0;" id="success-actions">
+                    <button class="success-action-btn primary cursor-hover-trigger" onclick="window.print();">Print Invitation</button>
+                    <button class="success-action-btn secondary cursor-hover-trigger" id="close-success-btn">Return to Website</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo cursor-hover-trigger">L'ÉLIXIR<span>.</span>N</a>
+                <p class="footer-brand-text">A micro-lot sensory refuge for the modern espresso epicurean. Experience roasting as high art.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-link cursor-hover-trigger" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" class="footer-social-link cursor-hover-trigger" aria-label="Facebook"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" class="footer-social-link cursor-hover-trigger" aria-label="Twitter"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="#hero" class="cursor-hover-trigger">Home</a></li>
+                    <li><a href="#story" class="cursor-hover-trigger">Philosophy</a></li>
+                    <li><a href="#menu" class="cursor-hover-trigger">Ritual Menu</a></li>
+                    <li><a href="#gallery" class="cursor-hover-trigger">The Gallery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Hours</h4>
+                <div class="footer-info-item">
+                    <span>Monday — Friday</span>
+                    07:00 AM — 08:00 PM
+                </div>
+                <div class="footer-info-item">
+                    <span>Saturday — Sunday</span>
+                    08:00 AM — 09:00 PM
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Contact</h4>
+                <div class="footer-info-item">
+                    <span>Inquiries</span>
+                    contact@lelixirnoir.com
+                </div>
+                <div class="footer-info-item">
+                    <span>Address</span>
+                    48 Rue de L'Arome, Paris, FR
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 L'Élixir Noir. All rights reserved. Sourced with devotion.</p>
+            <div class="footer-bottom-links">
+                <a href="#" class="cursor-hover-trigger">Privacy Policy</a>
+                <a href="#" class="cursor-hover-trigger">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP Core Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- GSAP ScrollTrigger Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Core Application Logic -->
+    <script src="main.js"></script>
+</body>
+</html>
